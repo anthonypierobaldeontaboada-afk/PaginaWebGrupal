@@ -10,170 +10,522 @@
     <link rel="stylesheet" href="../css/tailwind.generated.css" />
     <title>Presentación | IESTP Huanta</title>
   </head>
-  <body class="bg-[#fbfcfa] text-ink">
-    <header class="border-b border-slate-200/80 bg-white/90 backdrop-blur">
-      <nav class="section-wrap flex min-h-20 items-center justify-between gap-6" aria-label="Navegación principal">
-        <a href="../index.html" class="flex items-center gap-3 text-navy" aria-label="Ir al inicio">
-          <span class="grid size-11 place-items-center rounded-xl bg-navy text-lg font-extrabold text-white">H</span>
-          <span class="leading-tight">
-            <strong class="block text-sm font-extrabold">IESTP Huanta</strong>
-            <small class="block text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500">Educación que transforma</small>
-          </span>
-        </a>
-        <div class="flex items-center gap-3">
-          <a href="../index.html" class="rounded-full px-4 py-2 text-sm font-bold text-slate-600 hover:text-teal">Inicio</a>
-          <a href="admision.html" class="rounded-full bg-gold px-5 py-3 text-sm font-extrabold text-navy transition hover:bg-amber-300">Admisión <span aria-hidden="true">→</span></a>
-        </div>
-      </nav>
+  <body class="page-plana" style="margin:0; background:#f3f5f4; color:#0d2542; font-family:'Plus Jakarta Sans', sans-serif; line-height:1.5;">
+    <style>
+      .page-plana * { box-sizing: border-box; }
+      .page-plana a { text-decoration: none; }
+      .page-plana .topbar {
+        background: #f3f3f3;
+        border-bottom: 1px solid #dfe5e0;
+      }
+      .page-plana .topbar-inner {
+        width: min(100% - 2rem, 1280px);
+        margin: 0 auto;
+        min-height: 54px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2.2rem;
+        font-size: 0.96rem;
+        font-weight: 700;
+        color: #1d2f46;
+      }
+      .page-plana .topbar-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        white-space: nowrap;
+      }
+      .page-plana .topbar-item .icon {
+        width: 1.7rem;
+        height: 1.7rem;
+        border-radius: 50%;
+        display: inline-grid;
+        place-items: center;
+        color: #ffffff;
+        background: linear-gradient(180deg, #1f73dc 0%, #0f5db9 100%);
+        font-size: 0.75rem;
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
+      }
+      .page-plana .main-header {
+        background: linear-gradient(90deg, #0f4ea8 0%, #0c60bd 28%, #0b5ab6 100%);
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        overflow: hidden;
+      }
+      .page-plana .main-header-inner {
+        width: min(100%, 1280px);
+        margin: 0 auto;
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.2rem;
+        padding: 0.35rem 0 0.8rem;
+      }
+      .page-plana .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        min-width: 360px;
+        margin-left: 0;
+        padding-left: 0.2rem;
+      }
+      .page-plana .brand-mark {
+        width: 168px;
+        height: 92px;
+        border-radius: 52% / 50%;
+        background: linear-gradient(180deg, #1977d4 0%, #1d97e8 100%);
+        border: 5px solid #f1d45b;
+        display: grid;
+        place-items: center;
+        color: #fff;
+        font-weight: 900;
+        font-size: 3.2rem;
+        line-height: 1;
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
+      }
+      .page-plana .brand-text {
+        display: flex;
+        flex-direction: column;
+        color: #ffffff;
+        font-weight: 900;
+        line-height: 0.78;
+        letter-spacing: -0.08em;
+        text-transform: uppercase;
+        text-shadow: 0 2px 0 rgba(17,45,82,0.18);
+      }
+      .page-plana .brand-text span {
+        display: block;
+        font-size: clamp(2.3rem, 2.8vw, 3.05rem);
+      }
+      .page-plana .main-nav {
+        margin-left: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        row-gap: 0.25rem;
+        column-gap: 2rem;
+        padding: 0 0.2rem 0 0;
+        max-width: 860px;
+      }
+      .page-plana .main-nav a {
+        position: relative;
+        color: rgba(255,255,255,0.98);
+        font-size: 1.05rem;
+        font-weight: 700;
+        line-height: 1.2;
+        padding: 0.8rem 0 0.7rem;
+        white-space: nowrap;
+      }
+      .page-plana .main-nav a.active {
+        color: #ffffff;
+      }
+      .page-plana .main-nav a.active::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -2px;
+        height: 4px;
+        background: #f4d55d;
+        border-radius: 999px;
+      }
+      .page-plana .page-hero {
+        position: relative;
+        min-height: 330px;
+        background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+        display: grid;
+        place-items: center;
+      }
+      .page-plana .page-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(7, 25, 42, 0.46);
+      }
+      .page-plana .hero-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        color: white;
+        padding: 3rem 1rem 2.2rem;
+      }
+      .page-plana .hero-content h1 {
+        margin: 0;
+        font-size: clamp(2.8rem, 4vw, 5rem);
+        line-height: 1.08;
+        font-weight: 800;
+        letter-spacing: -0.06em;
+      }
+      .page-plana .breadcrumb {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        margin-top: 1rem;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: rgba(255,255,255,0.9);
+      }
+      .page-plana .breadcrumb .sep {
+        opacity: 0.8;
+      }
+      .page-plana .content-wrap {
+        width: min(100% - 2rem, 1220px);
+        margin: 0 auto;
+      }
+      .page-plana .intro {
+        padding-top: 2.8rem;
+        padding-bottom: 2.2rem;
+        color: #1d2d3f;
+      }
+      .page-plana .intro p {
+        margin: 0;
+        font-size: clamp(1.08rem, 1.25vw, 1.55rem);
+        line-height: 1.7;
+        color: #2a394a;
+      }
+      .page-plana .profile {
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 3.4rem;
+        align-items: end;
+        margin-top: 1.6rem;
+        padding-bottom: 1rem;
+      }
+      .page-plana .person-copy h2 {
+        margin: 0;
+        font-size: clamp(2.6rem, 4vw, 4.4rem);
+        line-height: 0.95;
+        letter-spacing: -0.07em;
+        font-weight: 900;
+        color: #0c2544;
+      }
+      .page-plana .role {
+        display: inline-block;
+        margin-top: 1rem;
+        margin-bottom: 1.3rem;
+        font-size: 1.05rem;
+        font-weight: 800;
+        color: #1d88b0;
+      }
+      .page-plana .person-copy p {
+        margin: 0;
+        max-width: 660px;
+        font-size: 1rem;
+        line-height: 1.7;
+        color: #2d4058;
+      }
+      .page-plana .contact-list {
+        display: grid;
+        gap: 0.9rem;
+        margin-top: 2rem;
+      }
+      .page-plana .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        color: #1a3151;
+        font-weight: 700;
+      }
+      .page-plana .contact-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        display: grid;
+        place-items: center;
+        border-radius: 0.8rem;
+        background: rgba(48, 132, 201, 0.08);
+        color: #1f7dc6;
+        font-size: 1.1rem;
+      }
+      .page-plana .photo-card {
+        border-radius: 1rem;
+        overflow: hidden;
+        background: #e7ecee;
+        border: 1px solid rgba(148,163,184,0.3);
+        box-shadow: 0 12px 28px rgba(15,23,42,0.06);
+        max-width: 500px;
+        justify-self: end;
+        width: 100%;
+      }
+      .page-plana .photo-card img {
+        display: block;
+        width: 100%;
+        height: 440px;
+        object-fit: cover;
+      }
+      .page-plana .photo-label {
+        display: flex;
+        justify-content: center;
+        padding: 0.8rem 1rem;
+        color: #0d2a45;
+        font-size: 0.95rem;
+        font-weight: 700;
+      }
+      .page-plana .team-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem 3.5rem;
+        margin-top: 4rem;
+        padding-bottom: 3rem;
+      }
+      .page-plana .team-column {
+        display: grid;
+        gap: 2.6rem;
+      }
+      .page-plana .team-card {
+        padding: 0.3rem 0;
+      }
+      .page-plana .team-card h3 {
+        margin: 0 0 0.8rem;
+        font-size: 0.9rem;
+        font-weight: 900;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: #143d58;
+      }
+      .page-plana .team-card ul {
+        list-style: disc;
+        padding-left: 1.4rem;
+        margin: 0;
+        color: #1d2d3f;
+      }
+      .page-plana .team-card li {
+        margin: 0.3rem 0;
+        font-size: 0.97rem;
+        line-height: 1.7;
+      }
+      .page-plana .team-card strong {
+        color: #0d2542;
+      }
+      .page-plana .closing {
+        max-width: 840px;
+        margin: 2.2rem 0 0;
+        color: #23394d;
+        font-size: 1.03rem;
+        line-height: 1.8;
+      }
+      @media (max-width: 900px) {
+        .page-plana .topbar-inner {
+          justify-content: center;
+          flex-wrap: wrap;
+          padding: 0.7rem 0;
+        }
+        .page-plana .main-header-inner {
+          flex-direction: column;
+          justify-content: center;
+          padding: 0.9rem 0;
+        }
+        .page-plana .main-nav {
+          justify-content: flex-start;
+          overflow-x: auto;
+          white-space: nowrap;
+          width: 100%;
+          padding-bottom: 0.25rem;
+        }
+        .page-plana .profile,
+        .page-plana .team-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+
+    <header class="topbar">
+      <div class="topbar-inner">
+        <span class="topbar-item"><span class="icon">☎</span> (066) 322296</span>
+        <span class="topbar-item"><span class="icon">⌂</span> Jr. Córdova N° 650</span>
+        <span class="topbar-item"><span class="icon">✉</span> contactos@iestphuanta.edu.pe</span>
+      </div>
     </header>
 
-    <main>
-      <section class="bg-navy py-20 text-white lg:py-28">
-        <div class="section-wrap grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center">
-          <div>
-            <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-gold">Presentación</p>
-            <h1 class="mt-5 max-w-2xl text-4xl font-extrabold leading-tight tracking-tight sm:text-6xl">
-              Breve presentación de la institución
-            </h1>
-            <p class="mt-6 max-w-xl text-lg leading-8 text-slate-300">
-              El Instituto de Educación Superior Público "Huanta" forma profesionales técnicos para responder a las necesidades de Huanta, Ayacucho y el país.
-            </p>
-            <div class="mt-8 flex flex-wrap gap-4">
-              <a href="#historia" class="rounded-full bg-gold px-6 py-3.5 text-sm font-extrabold text-navy transition hover:bg-amber-300">
-                Conoce nuestra historia <span aria-hidden="true">↓</span>
-              </a>
-              <a href="contacto.html" class="rounded-full border border-white/30 px-6 py-3.5 text-sm font-bold text-white hover:bg-white/10">
-                Contáctanos
-              </a>
-            </div>
+    <header class="main-header">
+      <div class="main-header-inner">
+        <div class="brand" aria-label="IESTP Huanta logo">
+          <div class="brand-mark">H</div>
+          <div class="brand-text">
+            <span>IESTP</span>
+            <span>HUANTA</span>
           </div>
-          <div class="relative">
-            <img class="h-80 w-full rounded-[2rem] object-cover shadow-2xl shadow-black/20" src="../assets/presentacion-instituto.jpg" alt="Entrada principal del Instituto de Educación Superior Público Huanta" fetchpriority="high" />
-            <div class="absolute -bottom-5 -left-5 rounded-2xl bg-gold px-5 py-4 text-sm font-extrabold text-navy shadow-xl">
-              Formación<br />con propósito
-            </div>
-          </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Navegación principal">
+          <a href="../index.html" class="active">Nosotros</a>
+          <a href="../index.html#carreras">Programas de estudios</a>
+          <a href="../pages/admision.html">Admisión y Matrícula</a>
+          <a href="../pages/transparencia.html">Transparencia</a>
+          <a href="../pages/tramites.html">Trámite</a>
+          <a href="#contacto">Contáctanos</a>
+          <a href="../index.html#servicios">Servicios</a>
+          <a href="../index.html#noticias">Otras páginas</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-plana-main">
+      <section class="page-hero" aria-label="Imagen institucional">
+        <div class="hero-content">
+          <h1>Plana jerárquica</h1>
+          <div class="breadcrumb"><span>Home</span> <span class="sep">›</span> <span>Plana jerárquica</span></div>
         </div>
       </section>
 
-      <section id="historia" class="section-wrap grid gap-12 py-20 lg:grid-cols-[0.85fr_1.15fr] lg:py-28">
-        <div>
-          <p class="eyebrow">Reseña histórica</p>
-          <h2 class="mt-3 text-3xl font-extrabold leading-tight tracking-tight text-navy sm:text-4xl">
-            Instituto de Educación Superior Público "Huanta"
-          </h2>
-        </div>
-        <div class="text-lg leading-8 text-slate-600">
+      <div class="content-wrap">
+        <section class="intro">
           <p>
-            Fue creado por RM Nro.265-86-ED, del 05 de junio de 1986. Inicialmente, fue creado con las especialidades de Agropecuaria y Electricidad; al año siguiente se creó la especialidad de Enfermería Técnica, con RD Nro.3983-87-ED.
+            En el Instituto de Educación Superior Público Huanta, contamos con un equipo comprometido y dedicado que trabaja arduamente para garantizar una educación de calidad. A continuación, presentamos el directorio de la plana jerárquica de nuestra institución, junto con la información básica del personal:
           </p>
-          <p class="mt-5">
-            posteriormente, las necesidades formativas de la educación técnica y la demanda del mercado laboral permitieron la sustitución y ampliación de nuevos programas de estudio, como Computación e Informática e Industrias Alimentarias.
-          </p>
-          <p class="mt-5">
-            El 19 de abril de 1997 se consolidó el programa de Industrias Alimentarias y, posteriormente, el programa de Mecánica Automotriz fue creado por RD Nro.2001-2009-ED, el 24 de agosto de 2009.
-          </p>
-          <div class="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-3">
-            <div class="rounded-2xl bg-mist p-5">
-              <strong class="block text-3xl font-extrabold text-navy">39</strong>
-              <span class="text-sm font-semibold text-slate-500">años al servicio de la educación</span>
-            </div>
-            <div class="rounded-2xl bg-mist p-5">
-              <strong class="block text-3xl font-extrabold text-navy">5</strong>
-              <span class="text-sm font-semibold text-slate-500">programas de estudios</span>
-            </div>
-            <div class="rounded-2xl bg-mist p-5">
-              <strong class="block text-3xl font-extrabold text-navy">LIC</strong>
-              <span class="text-sm font-semibold text-slate-500">instituto licenciado</span>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="bg-mist py-20 lg:py-24">
-        <div class="section-wrap grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-          <div>
-            <p class="eyebrow">Instituto licenciado</p>
-            <h2 class="mt-3 text-3xl font-extrabold leading-tight tracking-tight text-navy sm:text-4xl">
-              Formación de calidad para nuestra comunidad
-            </h2>
-            <p class="mt-6 text-lg leading-8 text-slate-600">
-              El Instituto de Educación Superior Público Huanta está comprometido en mejorar la calidad de la educación que ofrecemos. El licenciamiento es un paso fundamental que garantiza que nuestros programas académicos y servicios cumplen con los estándares y requisitos establecidos por las autoridades educativas competentes.
+        <section class="profile" aria-label="Director general">
+          <div class="person-copy">
+            <h2>Ing. Esaú<br />VILLANTOY<br />PALOMINO</h2>
+            <span class="role">Director General</span>
+            <p>
+              En el Instituto de Educación Superior Público Huanta, contamos con un equipo comprometido y dedicado que trabaja arduamente para garantizar una educación de calidad. A continuación, presentamos el directorio de la plana jerárquica de nuestra institución, junto con la información básica del personal:
             </p>
-            <p class="mt-5 text-lg leading-8 text-slate-600">
-              Contar con el licenciamiento refleja nuestro compromiso con la excelencia académica y el desarrollo de nuestra comunidad educativa. Seguimos trabajando continuamente para mantener y superar estos estándares.
-            </p>
+            <div class="contact-list">
+              <div class="contact-item"><span class="contact-icon">☎</span> (066) 322296</div>
+              <div class="contact-item"><span class="contact-icon">✉</span> contactos@iestphuanta.edu.pe</div>
+              <div class="contact-item"><span class="contact-icon">⌂</span> Jr. Córdova 650</div>
+            </div>
           </div>
-          <div class="rounded-2xl bg-white p-7 shadow-sm ring-1 ring-slate-200">
-            <h3 class="text-xl font-extrabold text-navy">Programas de estudios</h3>
-            <ul class="mt-5 space-y-3 text-slate-600">
-              <li class="flex items-center gap-2"><span class="text-teal">✓</span> Diseño y Programación Web</li>
-              <li class="flex items-center gap-2"><span class="text-teal">✓</span> Enfermería Técnica</li>
-              <li class="flex items-center gap-2"><span class="text-teal">✓</span> Mecatrónica Automotriz</li>
-              <li class="flex items-center gap-2"><span class="text-teal">✓</span> Industrias de alimentos y bebidas</li>
-              <li class="flex items-center gap-2"><span class="text-teal">✓</span> Producción Agropecuaria</li>
-            </ul>
-            <a class="mt-7 inline-flex rounded-full bg-navy px-5 py-3 text-sm font-extrabold text-white hover:bg-teal" href="carreras.html">
-              Ver programas <span class="ml-2" aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-      </section>
 
-      <section id="valores" class="bg-mist py-20 lg:py-24">
-        <div class="section-wrap">
-          <div class="mb-10 max-w-2xl">
-            <p class="eyebrow">Lo que nos guía</p>
-            <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-navy sm:text-4xl">
-              Misión, visión y valores
-            </h2>
+          <div class="photo-card" aria-label="Foto del director">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Director del Instituto" />
+            <div class="photo-label">Director General</div>
           </div>
-          <div class="grid gap-5 md:grid-cols-3">
-            <article class="rounded-2xl bg-white p-7 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg">
-              <span class="text-xs font-extrabold uppercase tracking-widest text-teal">01 · Misión</span>
-              <h3 class="mt-6 text-xl font-extrabold text-navy">Formar para transformar</h3>
-              <p class="mt-3 leading-7 text-slate-600">
-                Formar profesionales técnicos con competencias de calidad, innovación, emprendimiento y compromiso con el desarrollo de la sociedad.
-              </p>
-            </article>
-            <article class="rounded-2xl bg-navy p-7 text-white transition hover:-translate-y-1 hover:shadow-lg">
-              <span class="text-xs font-extrabold uppercase tracking-widest text-gold">02 · Visión</span>
-              <h3 class="mt-6 text-xl font-extrabold">Excelencia que inspira</h3>
-              <p class="mt-3 leading-7 text-slate-300">
-                Ser una institución líder en educación superior tecnológica, reconocida por su excelencia académica y profesionales competitivos.
-              </p>
-            </article>
-            <article class="rounded-2xl bg-white p-7 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg">
-              <span class="text-xs font-extrabold uppercase tracking-widest text-teal">03 · Valores</span>
-              <h3 class="mt-6 text-xl font-extrabold text-navy">Crecer con integridad</h3>
-              <p class="mt-3 leading-7 text-slate-600">
-                Promovemos respeto, responsabilidad, innovación, colaboración y servicio a nuestra comunidad.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="section-wrap grid gap-8 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-28">
-        <img class="h-72 w-full rounded-[2rem] object-cover shadow-xl" src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1000&q=85" alt="Estudiantes participando en una actividad académica" loading="lazy" />
-        <div>
-          <p class="eyebrow">Tu próximo capítulo empieza aquí</p>
-          <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-navy">
-            Sé parte de nuestra comunidad
-          </h2>
-          <p class="mt-4 leading-7 text-slate-600">
-            Conoce nuestros programas y encuentra el camino técnico que conecta con tus talentos.
-          </p>
-          <div class="mt-7 flex flex-wrap gap-4">
-            <a href="carreras.html" class="rounded-full bg-navy px-6 py-3.5 text-sm font-extrabold text-white hover:bg-teal">
-              Ver programas <span aria-hidden="true">→</span>
-            </a>
-            <a href="admision.html" class="rounded-full border-2 border-gold px-6 py-3 text-sm font-extrabold text-navy hover:bg-gold">
-              Postula ahora
-            </a>
+        <section class="team-grid" aria-label="Equipo institucional">
+          <div class="team-column">
+            <article class="team-card">
+              <h3>Jefe de Unidad Académica</h3>
+              <ul>
+                <li><strong>Nombre:</strong> Lic. Ismael LIRA HUAMÁN</li>
+                <li><strong>Cargo:</strong> Jefe de Unidad Académica</li>
+                <li><strong>Correo electrónico:</strong> lirahuamismael@gmail.com</li>
+                <li><strong>Celular:</strong> 986162715</li>
+              </ul>
+            </article>
+
+            <article class="team-card">
+              <h3>Secretaría Académica</h3>
+              <ul>
+                <li><strong>Nombre:</strong> Tec. Kevin Vlaes BANDO GÓMEZ</li>
+                <li><strong>Cargo:</strong> Jefe de Secretaría Académica</li>
+                <li><strong>Correo electrónico:</strong> kev_vls@hotmail.com</li>
+                <li><strong>Celular:</strong> 995497720</li>
+              </ul>
+            </article>
+
+            <article class="team-card">
+              <h3>Coordinador de Área de Calidad</h3>
+              <ul>
+                <li><strong>Nombre:</strong> Ing. Gerson Uriel TAYPE MUCHA</li>
+                <li><strong>Carga:</strong> Coordinador de Área de Calidad</li>
+                <li><strong>Correo electrónico:</strong> gersontaypemucha@gmail.com</li>
+                <li><strong>Celular:</strong> 999171627</li>
+              </ul>
+            </article>
+
+            <article class="team-card">
+              <h3>Coordinador del programa de estudios de Diseño y Programación Web</h3>
+              <ul>
+                <li><strong>Nombre:</strong> Juan Carlos TORRES LOZANO</li>
+                <li><strong>Cargo:</strong> Coordinador del Área Académica de Diseño y Programación Web</li>
+                <li><strong>Correo electrónico:</strong> jctorreslozano@gmail.com</li>
+                <li><strong>Celular:</strong> 935627200</li>
+              </ul>
+            </article>
+
+            <article class="team-card">
+              <h3>Coordinador del programa de estudios de Industrias de Alimentos y Bebidas</h3>
+              <ul>
+                <li><strong>Nombre:</strong> Ing. Ernesto ANDÍA OVALLE</li>
+                <li><strong>Carga:</strong> Coordinador del Área Académica de Industrias de Alimentos y Bebidas</li>
+                <li><strong>Correo electrónico:</strong> andiaernesto@gmail.com</li>
+                <li><strong>Celular:</strong> 955956533</li>
+              </ul>
+            </article>
+
+            <article class="team-card">
+              <h3>Coordinador del programa de estudios de Producción Agropecuaria</h3>
+              <ul>
+                <li><strong>Nombre:</strong> Ing. René Ángel ALEJANDRO SALAZAR</li>
+                <li><strong>Cargo:</strong> Coordinador del Área Académica de Producción Agropecuaria</li>
+                <li><strong>Correo electrónico:</strong> isthreal@hotmail.com</li>
+                <li><strong>Celular:</strong> 966127390</li>
+              </ul>
+            </article>
           </div>
-        </div>
-      </section>
+
+          <div class="team-column">
+            <article class="team-card">
+              <h3>Jefe de Unidad Administrativa</h3>
+              <ul>
+                <li><strong>Nombre:</strong> CPC Maricela Silvia GUERRA LÓPEZ</li>
+                <li><strong>Cargo:</strong> Jefe de Área Administrativa</li>
+                <li><strong>Correo electrónico:</strong> maricelaguerra@iestphuanta.edu.pe</li>
+                <li><strong>Celular:</strong> 980099744</li>
+              </ul>
+            </article>
+
+            <article class="team-card">
+              <h3>Jefe de Unidad de Bienestar y Empleabilidad</h3>
+              <ul>
+                <li><strong>Nombre:</strong> Lic. Alfonso Alvaro MORENO MARUQEZ</li>
+                <li><strong>Cargo:</strong> Jefe de Bienestar y Empleabilidad</li>
+                <li><strong>Correo electrónico:</strong> alfonsoamoreno@hotmail.com</li>
+                <li><strong>Celular:</strong> 966903518</li>
+              </ul>
+            </article>
+
+            <article class="team-card">
+              <h3>Jefe de Investigación e Innovación Tecnológica</h3>
+              <ul>
+                <li><strong>Nombre:</strong> Ing. Abraham David CRUZ CAPCHA</li>
+                <li><strong>Cargo:</strong> Jefe de Unidad de Investigación e Innovación Tecnológica</li>
+                <li><strong>Correo electrónico:</strong> david.cruz@iestphuanta.edu.pe</li>
+                <li><strong>Celular:</strong> 990909525</li>
+              </ul>
+            </article>
+
+            <article class="team-card">
+              <h3>Jefe de la Unidad de Formación Continua</h3>
+              <ul>
+                <li><strong>Nombre:</strong> Ing. Nancy Beatriz RODRÍGUEZ LAOS</li>
+                <li><strong>Cargo:</strong> Jefe de la Unidad de Formación Continua</li>
+                <li><strong>Correo electrónico:</strong> nayito.rodriguez@gmail.com</li>
+                <li><strong>Celular:</strong> 955956599</li>
+              </ul>
+            </article>
+
+            <article class="team-card">
+              <h3>Coordinador del programa de estudios de Enfermería Técnica</h3>
+              <ul>
+                <li><strong>Nombre:</strong> Lic. Jimmy Aranda Escalante</li>
+                <li><strong>Cargo:</strong> Coordinador del Área de Enfermería Técnica</li>
+                <li><strong>Correo electrónico:</strong> 28295518@iestphuanta.edu.pe</li>
+                <li><strong>Celular:</strong> 979106040</li>
+              </ul>
+            </article>
+
+            <article class="team-card">
+              <h3>Coordinador del programa de estudios de Mecatrónica Automotriz</h3>
+              <ul>
+                <li><strong>Nombre:</strong> Lic. Renan LUDEÑA ARANDA</li>
+                <li><strong>Cargo:</strong> Coordinador del Área Académica de Mecatrónica Automotriz</li>
+                <li><strong>Correo electrónico:</strong> —</li>
+                <li><strong>Celular:</strong> —</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <p class="closing">
+          En el Instituto de Educación Superior Público Huanta, valoramos el trabajo en equipo y la colaboración para lograr nuestros objetivos institucionales. Si necesitas ponerte en contacto con algún miembro de nuestro equipo, no dudes en utilizar la información proporcionada anteriormente.
+        </p>
+      </div>
     </main>
 
     <footer data-site-footer class="border-t-4 border-gold bg-navy text-white" aria-labelledby="footer-title"></footer>

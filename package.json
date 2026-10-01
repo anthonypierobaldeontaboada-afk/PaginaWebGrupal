@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "concurrently -k -n \"CSS,SERVER\" -c \"cyan,green\" \"npm run watch:css\" \"live-server --port=3000 --ignore=node_modules,.git\"",
+    "start": "npm run dev",
+    "serve": "live-server --port=3000 --ignore=node_modules,.git",
     "build:css": "tailwindcss -i ./css/tailwind.css -o ./css/tailwind.generated.css --minify",
     "watch:css": "tailwindcss -i ./css/tailwind.css -o ./css/tailwind.generated.css --watch",
     "test": "echo \"Error: no test specified\""
@@ -15,6 +18,8 @@
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.3",
     "autoprefixer": "^10.5.5",
+    "concurrently": "^10.0.5",
+    "live-server": "^1.2.2",
     "postcss": "^8.5.28",
     "tailwindcss": "^4.3.3"
   }

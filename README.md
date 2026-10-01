@@ -53,11 +53,17 @@ npm install
 ### Comandos disponibles
 
 ```bash
-# Generar CSS de Tailwind
+# Iniciar servidor de desarrollo con recarga en vivo y compilación Tailwind continua
+npm run dev
+
+# Generar CSS de Tailwind (producción / minificado)
 npm run build:css
 
-# Modo watch (regenera CSS automáticamente)
+# Modo watch solo para CSS
 npm run watch:css
+
+# Servir sitio estático
+npm run serve
 ```
 
 ## Arquitectura Dinámica
